@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery calculator | 9.2</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<style type="text/css">
+		body{
+			background-image: url('antoine-dautry-_zsL306fDck-unsplash.jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			height: 100vh;
+		}
+		*{
+			font-size: 20px;
+		}
+		.col-4{
+			background-color: #39383d;
+			border-radius: 8px;
+		}
+		.calc-display{
+			width: 100%;
+			height: 75px;
+			border: none;
+			outline: none;
+			background-color: #a2af77;
+			border-radius: 8px;
+			color: #fff;
+			padding: 0 10px;
+		}
+		input[type=button]{
+			border-radius: 8px;
+			height: 50px;
+			background-color: #58595b;
+			color: #fff;
+			border: none;
+			outline: none;
+			font-weight: 900;
+			font-size: 16px;
+		}
+		.magenta{
+			background-color: #9d4edd !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-lg-4 offset-lg-4 col-sm-12">
+				<div class="calc p-4">
+					<code class="text-light text-center m-auto">done by dovudbek</code>
+					<form name="form" class="form p-0">
+						<input class="calc-display w-100 text-right">
+					</form>
+
+					<table class="w-100 mt-3">
+						<tr class="row px-3 px-3">
+							<td class="col-3 p-1"><input type="button" value="7" onclick="insrt(7)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="8" onclick="insrt(8)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="9" onclick="insrt(9)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="<" onclick="del()" class="w-100 magenta"></td>
+						</tr>
+						<tr class="row px-3">
+							<td class="col-3 p-1"><input type="button" value="4" onclick="insrt(4)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="5" onclick="insrt(5)" class="w-100"></td>
+							<td class="col-3 p-1 "><input type="button" value="6" onclick="insrt(6)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="." onclick="insrt('.')" class="w-100 magenta"></td>
+						</tr>
+						<tr class="row px-3">
+							<td class="col-3 p-1"><input type="button" value="1" onclick="insrt(1)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="2" onclick="insrt(2)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="3" onclick="insrt(3)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="+" onclick="insrt('+')" class="w-100 magenta"></td>
+						</tr>
+						<tr class="row px-3">
+							<td class="col-3 p-1"><input type="button" value="0" onclick="insrt(0)" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="*" onclick="insrt('*')" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="/" onclick="insrt('/')" class="w-100"></td>
+							<td class="col-3 p-1"><input type="button" value="-" onclick="insrt('-')" class="w-100 magenta"></td>
+						</tr>
+						<tr class="row px-3">
+							<td colspan="2" class="col-6 p-1"><input type="button" value="AC" onclick="ac()" class="w-100"></td>
+							<td colspan="2" class="col-6 p-1"><input type="button" value="=" onclick="eql()" class="w-100" style="background-color: orange;"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script src="js/jQuery.min.js"></script>
+	<script src="js/popper.js"></script>  
+	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		
+		function insrt(num){
+			$(".calc-display").val($(".calc-display").val() + num);
+		}
+		function eql(){
+			$(".calc-display").val(eval($(".calc-display").val()));
+		}
+		function ac(){
+			$(".calc-display").val("");
+		}
+		function del(){
+			var value = $(".calc-display").val();
+			$(".calc-display").val(value.substring(0, value.length - 1));
+		}
+
+	</script>
+</body>
+</html>
